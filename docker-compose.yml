@@ -8,7 +8,7 @@ services:
     image: app_imc_server_rest_v1/api
     ports:
       - '8080:8080'
-      - '5008:5008'
+      - '5009:5009'
     environment:
-      - ADDITIONAL_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5008 -Xmx1G -Xms128m -XX:MaxMetaspaceSize=128m
+      - ADDITIONAL_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5009 -Xmx1G -Xms128m -XX:MaxMetaspaceSize=128m
       - PROFILE=dev

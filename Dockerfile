@@ -12,7 +12,7 @@ COPY /target/backend-imc-rest-v1*.jar ms-b-imc-rest-v1.jar
 
 SHELL ["/bin/bash", "-c"]
 
-EXPOSE 5008
+EXPOSE 5009
 EXPOSE 8080
 
 CMD java ${ADDITIONAL_OPTS} -jar ms-b-imc-rest-v1.jar --spring.profiles.active=${PROFILE}
