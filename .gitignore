@@ -105,3 +105,6 @@ target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
 .idea/modules.xml
 .idea/MS-B-IMC.iml
 .idea/vcs.xml
+*.class
+*.original
+.idea/encodings.xml
