@@ -2,6 +2,8 @@ package br.com.microservico.imc.controller;
 
 import br.com.microservico.imc.dto.IMCDTO;
 import br.com.microservico.imc.service.IMCService;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,14 +14,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+@Slf4j
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/imc")
 public class IMCController {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(IMCController.class);
-
-    @Autowired
-    private IMCService imcService;
+    private final IMCService imcService;
 
     @GetMapping(value = "/consulta")
     public ResponseEntity<IMCDTO> consultaIMC(@RequestParam(value = "altura", required = true) float altura,
@@ -48,9 +49,9 @@ public class IMCController {
 
             //retorno = "Você está com: " + processado + " e o seu IMC é: " + calculoIMC;
             response = new ResponseEntity<IMCDTO>(imcdto, HttpStatus.OK);
-            LOGGER.info("[IMC] - Processamento realizado com sucesso");
+            log.info("[IMC] - Processamento realizado com sucesso");
         }catch (Exception e){
-            LOGGER.error("[IMC] - Ocorreu um erro durante o processamento", e);
+            log.error("[IMC] - Ocorreu um erro durante o processamento", e);
             response = new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
