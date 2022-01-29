@@ -3,7 +3,6 @@ package br.com.microservico.imc.controller;
 import br.com.microservico.imc.dto.IMCDTO;
 import br.com.microservico.imc.service.IMCService;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-@Slf4j
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/imc")
@@ -46,9 +44,9 @@ public class IMCController {
 
             //retorno = "Você está com: " + processado + " e o seu IMC é: " + calculoIMC;
             response = new ResponseEntity<IMCDTO>(imcdto, HttpStatus.OK);
-            log.info("[IMC] - Processamento realizado com sucesso");
+            System.out.println("[IMC] - Processamento realizado com sucesso");
         }catch (Exception e){
-            log.error("[IMC] - Ocorreu um erro durante o processamento", e);
+            System.out.println("[IMC] - Ocorreu um erro durante o processamento "+ e);
             response = new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
