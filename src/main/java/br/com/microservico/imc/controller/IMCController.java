@@ -2,7 +2,6 @@ package br.com.microservico.imc.controller;
 
 import br.com.microservico.imc.dto.IMCDTO;
 import br.com.microservico.imc.service.IMCService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,12 +9,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-@RequiredArgsConstructor
+import java.util.Calendar;
+import java.util.TimeZone;
+
 @RestController
 @RequestMapping("/imc")
 public class IMCController {
 
     private final IMCService imcService;
+
+    public IMCController(IMCService imcService) {
+        this.imcService = imcService;
+    }
+
+    @GetMapping(value = "/health")
+    public String health(){
+
+        TimeZone tz = TimeZone.getTimeZone("GMT-3");
+        TimeZone.setDefault(tz);
+        return Calendar.getInstance(tz).getTime().toString();
+    }
+
 
     @GetMapping(value = "/consulta")
     public ResponseEntity<IMCDTO> consultaIMC(@RequestParam(value = "altura", required = true) float altura,
