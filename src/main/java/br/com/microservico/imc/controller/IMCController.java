@@ -22,7 +22,7 @@ public class IMCController {
         this.imcService = imcService;
     }
 
-    @GetMapping(value = "/health")
+    @GetMapping("/health")
     public String health(){
 
         TimeZone tz = TimeZone.getTimeZone("GMT-3");

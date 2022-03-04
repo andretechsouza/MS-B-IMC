@@ -1,0 +1,14 @@
+#debug=true
+
+#Logging
+
+#Server configuration
+server:
+  servlet:
+    context-path: /imc-rest-v1
+  port: 8080
+
+logging:
+  level:
+    org.springframework.web: "debug"
+    org.hibernate: "error"

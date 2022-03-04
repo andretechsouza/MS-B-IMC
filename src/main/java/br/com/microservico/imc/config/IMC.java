@@ -4,7 +4,7 @@ package br.com.microservico.imc.config;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication(scanBasePackages = "br.com.microservico.imc.config")
+@SpringBootApplication(scanBasePackages = "br.com.microservico.imc")
 public class IMC {
 
     public static void main(String[] args) {
