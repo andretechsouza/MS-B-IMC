@@ -55,15 +55,12 @@ public class IMCController {
             }else if(imcdto.getImc() >= 40){
                 imcdto.setMsg("Obesidade Grau 3");
             }
-
-            //retorno = "Você está com: " + processado + " e o seu IMC é: " + calculoIMC;
             response = new ResponseEntity<IMCDTO>(imcdto, HttpStatus.OK);
             System.out.println("[IMC] - Processamento realizado com sucesso");
         }catch (Exception e){
             System.out.println("[IMC] - Ocorreu um erro durante o processamento "+ e);
             response = new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
-
         return response;
     }
 }
