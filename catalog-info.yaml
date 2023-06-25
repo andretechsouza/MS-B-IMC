@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: MS-B-IMC
+  annotations:
+    github.com/project-slug: andretechsouza/MS-B-IMC
+spec:
+  type: other
+  lifecycle: unknown
+  owner: team-a
